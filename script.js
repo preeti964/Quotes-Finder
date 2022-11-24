@@ -1,8 +1,10 @@
 function getResults () {
-    fetch('https://goquotes-api.herokuapp.com/api/v1/all/quotes')
+    fetch('https://type.fit/api/quotes')
       .then(data => {
         return data.json();
-      }).then(displayResults);
+      }).then((det)=>{
+        displayResults(det);
+      });
    
   }
 const arr =[];
@@ -10,10 +12,11 @@ const arr =[];
    
     for(let i=10; i<800; i++)
       {
-        arr.push(data.quotes[i].text);
+        arr.push(data[i].text);
       }
      
   }
+  console.log(arr);
 window.onload=getResults;
 
 
@@ -52,8 +55,6 @@ function myFunction()
         
         }
     }
-
-
 }
 function putInto(value)
 {
